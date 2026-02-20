@@ -50,7 +50,6 @@ EMAIL_TO=your-email@gmail.com
 
 - Email: sarthakhase555@gmail.com
 - GitHub: github.com/sarthak-hase25
-- LinkedIn: your-linkedin-url
 
 ## License
 
