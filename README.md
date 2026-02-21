@@ -51,6 +51,9 @@ EMAIL_TO=your-email@gmail.com
 - Email: sarthakhase555@gmail.com
 - GitHub: github.com/sarthak-hase25
 
+## Live Demo 
+https://sarthakhase.vercel.app/
+
 ## License
 
 This project is open source and available under the MIT License.
