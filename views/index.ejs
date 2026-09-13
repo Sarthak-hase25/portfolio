@@ -39,7 +39,7 @@ const certificatesList = [
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <title>Sarthak Hase | Web & Full Stack Developer</title>
     
     <!-- Meta tags for SEO -->
@@ -101,11 +101,19 @@ const certificatesList = [
     </script>
 
     <style>
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
         body {
             font-family: 'Outfit', sans-serif;
             background-color: #0B1120;
             color: #CBD5E1;
             overflow-x: hidden;
+            max-width: 100%;
+            position: relative;
         }
 
         h1, h2, h3, h4, .font-heading {
@@ -208,7 +216,7 @@ const certificatesList = [
 <body class="selection:bg-amber-500 selection:text-white">
 
     <!-- ================= NAVBAR ================= -->
-    <header class="fixed top-0 left-0 w-full z-50 nav-clean">
+    <header class="fixed top-0 inset-x-0 w-full z-50 nav-clean">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-18 py-3.5">
                 <!-- Logo -->
@@ -363,10 +371,10 @@ const certificatesList = [
                         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
                             Sarthak <span class="text-gradient-warm">Hase</span>
                         </h1>
-                        <div class="text-lg sm:text-xl font-semibold text-gray-300 h-8 flex items-center justify-center lg:justify-start">
-                            <span id="typewriter-prefix" class="text-gray-400 mr-2">I am an</span>
-                            <span id="typewriter-text" class="text-amber-400"></span>
-                            <span class="typewriter-cursor"></span>
+                        <div class="text-sm xs:text-base sm:text-lg lg:text-xl font-semibold text-gray-300 min-h-[2rem] sm:min-h-[2.25rem] flex flex-wrap items-center justify-center lg:justify-start max-w-full leading-tight">
+                            <span id="typewriter-prefix" class="text-gray-400 mr-2 shrink-0">I am an</span>
+                            <span id="typewriter-text" class="text-amber-400 break-words"></span>
+                            <span class="typewriter-cursor shrink-0"></span>
                         </div>
                     </div>
 
@@ -520,10 +528,10 @@ const certificatesList = [
                         </div>
                     </div>
 
-                    <div class="shrink-0">
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-navy-850 border border-white/10 text-gray-300 text-xs font-medium">
-                            <iconify-icon icon="lucide:calendar" width="14" class="text-amber-400"></iconify-icon>
-                            March 2026 – August 2026 (6 Months)
+                    <div class="shrink-0 max-w-full">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-navy-850 border border-white/10 text-gray-300 text-xs font-medium max-w-full truncate">
+                            <iconify-icon icon="lucide:calendar" width="14" class="text-amber-400 shrink-0"></iconify-icon>
+                            <span class="truncate">March 2026 – August 2026 (6 Months)</span>
                         </span>
                     </div>
                 </div>
@@ -997,7 +1005,7 @@ const certificatesList = [
                 </h2>
             </div>
 
-            <div class="card-clean p-6 sm:p-8 rounded-2xl border-white/10" data-aos="fade-up">
+            <div class="card-clean p-6 sm:p-8 rounded-2xl border-white/10 max-w-full overflow-hidden" data-aos="fade-up">
                 <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pb-5 border-b border-white/10 mb-6">
                     <div>
                         <div class="flex items-center gap-2">
