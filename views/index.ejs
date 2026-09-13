@@ -529,11 +529,15 @@ const certificatesList = [
                         </div>
                     </div>
 
-                    <div class="shrink-0 max-w-full">
+                    <div class="flex items-center flex-wrap gap-2.5 shrink-0 max-w-full">
                         <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-navy-850 border border-white/10 text-gray-300 text-xs font-medium max-w-full truncate">
                             <iconify-icon icon="lucide:calendar" width="14" class="text-amber-400 shrink-0"></iconify-icon>
                             <span class="truncate">March 2026 – August 2026 (6 Months)</span>
                         </span>
+                        <button type="button" id="view-internship-cert-btn" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 shadow-sm transition-all hover:scale-[1.02] active:scale-95 cursor-pointer shrink-0" title="View Internship Certificate">
+                            <iconify-icon icon="lucide:award" width="14"></iconify-icon>
+                            <span>View Certificate</span>
+                        </button>
                     </div>
                 </div>
 
@@ -1357,8 +1361,72 @@ const certificatesList = [
             const modalPrevBtn = document.getElementById('modal-prev-btn');
             const modalNextBtn = document.getElementById('modal-next-btn');
 
+            let isInternshipView = false;
+            let internshipCertData = {
+                title: 'Web Developer Internship Certificate',
+                issuer: 'StartingCore',
+                credentialId: 'Internship (March 2026 – August 2026)',
+                date: 'March 2026 – August 2026 (6 Months)',
+                file: '/certificates/internship/internship-certificate.png',
+                image: '/certificates/internship/internship-certificate.png',
+                isPdf: false
+            };
+
+            window.openInternshipCertModal = async function() {
+                try {
+                    const res = await fetch('/api/internship-certificate-info');
+                    if (res.ok) {
+                        const data = await res.json();
+                        internshipCertData = Object.assign(internshipCertData, data);
+                    }
+                } catch (e) {
+                    // Fallback to default
+                }
+
+                isInternshipView = true;
+                modalCertTitle.textContent = internshipCertData.title;
+                modalCertSubtitle.textContent = `${internshipCertData.issuer} • ${internshipCertData.credentialId || internshipCertData.date}`;
+                modalCertDownload.href = internshipCertData.file;
+                modalCertNewTab.href = internshipCertData.file;
+                modalCertCounter.textContent = 'Internship Experience Certificate';
+
+                // Hide prev/next buttons for single internship cert
+                if (modalPrevBtn && modalPrevBtn.parentElement) {
+                    modalPrevBtn.parentElement.classList.add('hidden');
+                }
+
+                modalCertBody.innerHTML = '';
+                const isPdf = internshipCertData.isPdf || (internshipCertData.file && internshipCertData.file.toLowerCase().endsWith('.pdf'));
+                if (isPdf) {
+                    const iframe = document.createElement('iframe');
+                    iframe.src = internshipCertData.file;
+                    iframe.className = 'w-full h-[65vh] rounded-xl border border-white/10 bg-white shadow-xl';
+                    iframe.title = internshipCertData.title;
+                    modalCertBody.appendChild(iframe);
+                } else {
+                    const img = document.createElement('img');
+                    img.src = internshipCertData.image || internshipCertData.file;
+                    img.alt = internshipCertData.title;
+                    img.className = 'max-h-[68vh] max-w-full object-contain rounded-xl shadow-2xl border border-white/10 mx-auto';
+                    modalCertBody.appendChild(img);
+                }
+
+                certModal.classList.remove('hidden');
+                certModal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const viewInternshipCertBtn = document.getElementById('view-internship-cert-btn');
+            if (viewInternshipCertBtn) {
+                viewInternshipCertBtn.addEventListener('click', window.openInternshipCertModal);
+            }
+
             window.openCertModal = function(idx) {
                 if (!certDataList || certDataList.length === 0) return;
+                isInternshipView = false;
+                if (modalPrevBtn && modalPrevBtn.parentElement) {
+                    modalPrevBtn.parentElement.classList.remove('hidden');
+                }
                 currentCertIndex = (idx + certDataList.length) % certDataList.length;
                 const cert = certDataList[currentCertIndex];
 
@@ -1397,6 +1465,10 @@ const certificatesList = [
                 certModal.classList.remove('flex');
                 modalCertBody.innerHTML = '';
                 document.body.style.overflow = '';
+                isInternshipView = false;
+                if (modalPrevBtn && modalPrevBtn.parentElement) {
+                    modalPrevBtn.parentElement.classList.remove('hidden');
+                }
             };
 
             if (closeCertModalBtn) {
@@ -1420,8 +1492,10 @@ const certificatesList = [
             window.addEventListener('keydown', (e) => {
                 if (!certModal || certModal.classList.contains('hidden')) return;
                 if (e.key === 'Escape') window.closeCertModal();
-                if (e.key === 'ArrowLeft') window.openCertModal(currentCertIndex - 1);
-                if (e.key === 'ArrowRight') window.openCertModal(currentCertIndex + 1);
+                if (!isInternshipView) {
+                    if (e.key === 'ArrowLeft') window.openCertModal(currentCertIndex - 1);
+                    if (e.key === 'ArrowRight') window.openCertModal(currentCertIndex + 1);
+                }
             });
         });
     </script>

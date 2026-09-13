@@ -56,6 +56,39 @@ app.get('/', (req, res) => {
     res.render('index', { title: 'My Portfolio' });
 });
 
+// Internship certificate info endpoint: dynamically detects user's certificate in public/certificates/internship
+app.get('/api/internship-certificate-info', (req, res) => {
+    const dir = path.join(__dirname, 'public', 'certificates', 'internship');
+    let certFile = '/certificates/internship/internship-certificate.png';
+    let isPdf = false;
+
+    if (fs.existsSync(dir)) {
+        const files = fs.readdirSync(dir);
+        // Exclude README and hidden files
+        const validFiles = files.filter(f => !f.toLowerCase().startsWith('readme') && !f.startsWith('.'));
+        const pdfFile = validFiles.find(f => f.toLowerCase().endsWith('.pdf'));
+        const imgFile = validFiles.find(f => /\.(png|jpe?g|webp)$/i.test(f));
+
+        if (pdfFile) {
+            certFile = `/certificates/internship/${pdfFile}`;
+            isPdf = true;
+        } else if (imgFile) {
+            certFile = `/certificates/internship/${imgFile}`;
+            isPdf = false;
+        }
+    }
+
+    res.json({
+        file: certFile,
+        isPdf: isPdf,
+        title: 'Web Developer Internship Certificate',
+        issuer: 'StartingCore',
+        credentialId: 'Internship (March 2026 – August 2026)',
+        date: 'March 2026 – August 2026 (6 Months)'
+    });
+});
+
+
 // GitHub contribution chart: 2026-only calendar generator with dark-mode theme
 let cached2026Svg = null;
 let lastChartFetch = 0;
