@@ -34,6 +34,87 @@ const certificatesList = [
         description: "Official AWS accreditation validating foundational cloud fluency across core AWS services (EC2, S3, RDS, VPC, IAM), security compliance, and cloud architecture principles. Valid thru Sept 2029."
     }
 ];
+
+// =========================================================================
+// PROJECTS DATA
+// =========================================================================
+const projectsList = [
+    {
+        id: "kitcheniq",
+        title: "KitchenIQ",
+        subtitle: "AI Cloud Kitchen Management System",
+        category: "ai fullstack",
+        badge: "AI SaaS Platform",
+        badgeClass: "text-purple-400 bg-purple-500/10 border-purple-500/20",
+        badgeIcon: "lucide:sparkles",
+        icon: "lucide:utensils-crossed",
+        iconColor: "text-purple-400",
+        description: "Full-stack AI SaaS platform optimizing commercial kitchen operations with demand forecasting, dynamic menu pricing, inventory analytics, and an explainable AI microservice.",
+        skills: ["FastAPI", "Python", "Node.js", "React", "Prisma", "PostgreSQL", "Tailwind CSS"],
+        githubUrl: "https://github.com/Sarthak-hase25/KitchenIQ-AI-Cloud-Kitchen-Management-System",
+        liveUrl: "https://kitchen-iq-ai-cloud-kitchen-managem.vercel.app"
+    },
+    {
+        id: "clearflow",
+        title: "ClearFlow",
+        subtitle: "AI Project Intelligence Platform",
+        category: "ai fullstack",
+        badge: "GenAI Platform",
+        badgeClass: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
+        badgeIcon: "lucide:bot",
+        icon: "lucide:messages-square",
+        iconColor: "text-cyan-400",
+        description: "Intelligent project communication hub that aggregates team messages and uses Google Gemini to generate structured executive summaries, prioritized actions, decision logs, and risk assessments.",
+        skills: ["React 19", "Google Gemini AI", "Vite", "Tailwind CSS", "REST API"],
+        githubUrl: "https://github.com/Sarthak-hase25/ClearFlow-project-communication-platform",
+        liveUrl: "https://clear-flow-ten.vercel.app"
+    },
+    {
+        id: "waymate",
+        title: "WayMate",
+        subtitle: "Community Transit Web Platform",
+        category: "fullstack",
+        badge: "Live Production",
+        badgeClass: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+        badgeIcon: "lucide:car",
+        icon: "lucide:map-pin",
+        iconColor: "text-amber-400",
+        description: "Community transit web platform for local communities and workplaces to share rides, split travel costs, and connect with real-time seat availability.",
+        skills: ["Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+        githubUrl: "https://github.com/sarthak-hase25/WayMate",
+        liveUrl: "https://ride-sharing-platform-fljk.onrender.com"
+    },
+    {
+        id: "driver-drowsiness",
+        title: "Driver Drowsiness Detection",
+        subtitle: "Computer Vision Safety System",
+        category: "ai cv",
+        badge: "Computer Vision",
+        badgeClass: "text-warm-coral bg-rose-500/10 border-rose-500/20",
+        badgeIcon: "lucide:scan-face",
+        icon: "lucide:eye",
+        iconColor: "text-warm-coral",
+        description: "AI-powered safety system tracking eye closure states and facial landmarks in real-time via camera frames to alert drowsy drivers and prevent highway accidents.",
+        skills: ["Python", "OpenCV", "TensorFlow", "dlib"],
+        githubUrl: "https://github.com/sarthak-hase25/Driver-drowsiness-detection",
+        liveUrl: null
+    },
+    {
+        id: "portfolio",
+        title: "Personal Portfolio",
+        subtitle: "Developer Showcase & Analytics",
+        category: "fullstack",
+        badge: "Web Application",
+        badgeClass: "text-orange-400 bg-orange-500/10 border-orange-500/20",
+        badgeIcon: "lucide:globe",
+        icon: "lucide:laptop",
+        iconColor: "text-orange-400",
+        description: "Fast, responsive personal portfolio built with Node.js, Express, EJS, and Tailwind CSS to showcase internship experience, AI projects, and verified credentials.",
+        skills: ["Node.js", "Express.js", "EJS", "Tailwind CSS", "AOS"],
+        githubUrl: "https://github.com/sarthak-hase25/portfolio",
+        liveUrl: "https://portfolio-ten-eta-7oycl2mekb.vercel.app"
+    }
+];
 %>
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
@@ -43,7 +124,7 @@ const certificatesList = [
     <title>Sarthak Hase | Web & Full Stack Developer</title>
     
     <!-- Meta tags for SEO -->
-    <meta name="description" content="Portfolio of Sarthak Hase - Web Developer & MCA Student. Experience at StartingCore in React, Node.js, Express, Tailwind CSS, Supabase, Cloudflare, PostgreSQL, and Gemini API.">
+    <meta name="description" content="Portfolio of Sarthak Hase - Web Developer & MCA Student. Experience at StartingCore in React, Node.js, Express, Tailwind CSS, Supabase, Cloudflare, PostgreSQL, and Gemini API. Featured projects include KitchenIQ, ClearFlow, and WayMate.">
     <meta name="author" content="Sarthak Hase">
     <meta name="theme-color" content="#0B1120">
 
@@ -737,98 +818,115 @@ const certificatesList = [
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Section Header -->
-            <div class="text-center max-w-2xl mx-auto mb-12" data-aos="fade-up">
+            <div class="text-center max-w-2xl mx-auto mb-10" data-aos="fade-up">
                 <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-2">
+                    <iconify-icon icon="lucide:layers" width="14"></iconify-icon>
                     Portfolio
                 </div>
                 <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
                     Featured <span class="text-gradient-warm">Projects</span>
                 </h2>
+                <p class="text-sm text-gray-400 mt-2">
+                    Full-stack AI SaaS platforms, production web systems, and intelligent computer vision applications
+                </p>
+            </div>
+
+            <!-- Project Category Filter Tabs -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-10" data-aos="fade-up" data-aos-delay="100">
+                <button type="button" class="project-filter-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 bg-amber-500 text-white shadow-sm" data-filter="all">
+                    All Projects (<%= projectsList.length %>)
+                </button>
+                <button type="button" class="project-filter-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 bg-white/5 text-gray-400 hover:text-white hover:bg-white/10" data-filter="ai">
+                    AI & GenAI (3)
+                </button>
+                <button type="button" class="project-filter-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 bg-white/5 text-gray-400 hover:text-white hover:bg-white/10" data-filter="fullstack">
+                    Full-Stack & Web (4)
+                </button>
+                <button type="button" class="project-filter-btn px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 bg-white/5 text-gray-400 hover:text-white hover:bg-white/10" data-filter="cv">
+                    Computer Vision (1)
+                </button>
             </div>
 
             <!-- Projects Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Project 1 -->
-                <div class="card-clean rounded-xl overflow-hidden flex flex-col justify-between border-white/10" data-aos="fade-up" data-aos-delay="100">
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <% projectsList.forEach((project, index) => { %>
+                <div class="project-card card-clean rounded-xl overflow-hidden flex flex-col justify-between border-white/10 hover:border-amber-500/40 transition-all duration-300 group" data-category="<%= project.category %>" data-aos="fade-up" data-aos-delay="<%= 100 * ((index % 3) + 1) %>">
                     <div class="p-5 sm:p-6 space-y-3">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">Live Production</span>
-                            <iconify-icon icon="lucide:car" width="20" class="text-amber-400"></iconify-icon>
+                            <span class="text-xs font-bold <%= project.badgeClass %> px-2.5 py-1 rounded-full border flex items-center gap-1.5">
+                                <iconify-icon icon="<%= project.badgeIcon %>" width="13"></iconify-icon>
+                                <span><%= project.badge %></span>
+                            </span>
+                            <iconify-icon icon="<%= project.icon %>" width="20" class="<%= project.iconColor %> group-hover:scale-110 transition-transform"></iconify-icon>
                         </div>
-                        <h3 class="font-heading text-lg font-bold text-white">WayMate</h3>
+                        <div>
+                            <h3 class="font-heading text-lg font-bold text-white group-hover:text-amber-400 transition-colors">
+                                <%= project.title %>
+                            </h3>
+                            <% if (project.subtitle) { %>
+                                <p class="text-xs text-amber-400/90 font-medium mt-0.5">
+                                    <%= project.subtitle %>
+                                </p>
+                            <% } %>
+                        </div>
                         <p class="text-sm text-gray-300 leading-relaxed">
-                            Community transit web platform for local communities and workplaces to share rides, split travel costs, and connect with real-time seat availability.
+                            <%= project.description %>
                         </p>
                         <div class="flex flex-wrap gap-1.5 pt-2">
-                            <span class="px-2 py-0.5 rounded bg-white/5 text-[11px] text-gray-300">Node.js</span>
-                            <span class="px-2 py-0.5 rounded bg-white/5 text-[11px] text-gray-300">Express.js</span>
-                            <span class="px-2 py-0.5 rounded bg-white/5 text-[11px] text-gray-300">MongoDB</span>
-                            <span class="px-2 py-0.5 rounded bg-white/5 text-[11px] text-gray-300">Tailwind</span>
+                            <% project.skills.forEach(skill => { %>
+                                <span class="px-2 py-0.5 rounded bg-white/5 text-[11px] text-gray-300 border border-white/5"><%= skill %></span>
+                            <% }); %>
                         </div>
                     </div>
                     <div class="p-5 sm:p-6 pt-0 border-t border-white/5 mt-4 flex items-center gap-3">
-                        <a href="https://github.com/sarthak-hase25/WayMate" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-gray-300 hover:text-white flex items-center gap-1.5 transition-colors">
-                            <svg class="w-3.5 h-3.5 fill-white shrink-0" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                            <span>Code</span>
-                        </a>
-                        <span class="text-gray-600">|</span>
-                        <a href="https://ride-sharing-platform-fljk.onrender.com" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-amber-400 hover:text-amber-300 flex items-center gap-1 transition-colors">
-                            Live Demo &rarr;
-                        </a>
+                        <% if (project.githubUrl) { %>
+                            <a href="<%= project.githubUrl %>" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-gray-300 hover:text-white flex items-center gap-1.5 transition-colors">
+                                <svg class="w-3.5 h-3.5 fill-white shrink-0" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                                <span>Code</span>
+                            </a>
+                        <% } %>
+                        <% if (project.githubUrl && project.liveUrl) { %>
+                            <span class="text-gray-600">|</span>
+                        <% } %>
+                        <% if (project.liveUrl) { %>
+                            <a href="<%= project.liveUrl %>" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-amber-400 hover:text-amber-300 flex items-center gap-1 transition-colors">
+                                <span>Live Demo</span> &rarr;
+                            </a>
+                        <% } %>
                     </div>
                 </div>
+                <% }); %>
 
-                <!-- Project 2 -->
-                <div class="card-clean rounded-xl overflow-hidden flex flex-col justify-between border-white/10" data-aos="fade-up" data-aos-delay="200">
+                <!-- Card 6: Explore More on GitHub -->
+                <div class="project-card card-clean rounded-xl overflow-hidden flex flex-col justify-between border-white/10 hover:border-amber-500/40 transition-all duration-300 group border-dashed" data-category="all fullstack ai cv" data-aos="fade-up" data-aos-delay="300">
                     <div class="p-5 sm:p-6 space-y-3">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs font-bold text-warm-coral bg-rose-500/10 px-2.5 py-1 rounded-full border border-rose-500/20">Computer Vision</span>
-                            <iconify-icon icon="lucide:eye" width="20" class="text-warm-coral"></iconify-icon>
+                            <span class="text-xs font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20 flex items-center gap-1.5">
+                                <iconify-icon icon="lucide:folder-git-2" width="13"></iconify-icon>
+                                <span>Open Source</span>
+                            </span>
+                            <iconify-icon icon="lucide:github" width="20" class="text-gray-400 group-hover:text-amber-400 group-hover:scale-110 transition-all"></iconify-icon>
                         </div>
-                        <h3 class="font-heading text-lg font-bold text-white">Driver Drowsiness Detection</h3>
+                        <div>
+                            <h3 class="font-heading text-lg font-bold text-white group-hover:text-amber-400 transition-colors">More on GitHub</h3>
+                            <p class="text-xs text-gray-400 font-medium mt-0.5">Explore additional repos & experiments</p>
+                        </div>
                         <p class="text-sm text-gray-300 leading-relaxed">
-                            AI-powered system tracking eye closure states in real-time via camera frames to alert sleepy drivers and prevent highway accidents.
+                            Discover additional open-source repositories, backend assignments, algorithms, microservice prototypes, and full-stack experiments on my GitHub profile.
                         </p>
                         <div class="flex flex-wrap gap-1.5 pt-2">
-                            <span class="px-2 py-0.5 rounded bg-white/5 text-[11px] text-gray-300">Python</span>
-                            <span class="px-2 py-0.5 rounded bg-white/5 text-[11px] text-gray-300">OpenCV</span>
-                            <span class="px-2 py-0.5 rounded bg-white/5 text-[11px] text-gray-300">TensorFlow</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-[11px] text-gray-300 border border-white/5">JavaScript</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-[11px] text-gray-300 border border-white/5">Python</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-[11px] text-gray-300 border border-white/5">FastAPI</span>
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-[11px] text-gray-300 border border-white/5">MERN</span>
                         </div>
                     </div>
-                    <div class="p-5 sm:p-6 pt-0 border-t border-white/5 mt-4 flex items-center gap-3">
-                        <a href="https://github.com/sarthak-hase25/driver-drowsiness-detection" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-gray-300 hover:text-white flex items-center gap-1.5 transition-colors">
-                            <svg class="w-3.5 h-3.5 fill-white shrink-0" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                            <span>View Code</span>
+                    <div class="p-5 sm:p-6 pt-0 border-t border-white/5 mt-4 flex items-center">
+                        <a href="https://github.com/sarthak-hase25?tab=repositories" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-amber-400 hover:text-amber-300 flex items-center gap-1.5 transition-colors">
+                            <span>Explore All Repositories</span> &rarr;
                         </a>
                     </div>
                 </div>
-
-                <!-- Project 3 -->
-                <div class="card-clean rounded-xl overflow-hidden flex flex-col justify-between border-white/10 md:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="300">
-                    <div class="p-5 sm:p-6 space-y-3">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-bold text-orange-400 bg-orange-500/10 px-2.5 py-1 rounded-full border border-orange-500/20">Web App</span>
-                            <iconify-icon icon="lucide:globe" width="20" class="text-orange-400"></iconify-icon>
-                        </div>
-                        <h3 class="font-heading text-lg font-bold text-white">Personal Portfolio</h3>
-                        <p class="text-sm text-gray-300 leading-relaxed">
-                            Fast, responsive personal portfolio built with Node.js, Express, EJS, and Tailwind CSS to showcase internship experience and academic milestones.
-                        </p>
-                        <div class="flex flex-wrap gap-1.5 pt-2">
-                            <span class="px-2 py-0.5 rounded bg-white/5 text-[11px] text-gray-300">Node.js</span>
-                            <span class="px-2 py-0.5 rounded bg-white/5 text-[11px] text-gray-300">EJS</span>
-                            <span class="px-2 py-0.5 rounded bg-white/5 text-[11px] text-gray-300">Tailwind</span>
-                        </div>
-                    </div>
-                    <div class="p-5 sm:p-6 pt-0 border-t border-white/5 mt-4 flex items-center gap-3">
-                        <a href="https://github.com/sarthak-hase25/portfolio" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-gray-300 hover:text-white flex items-center gap-1.5 transition-colors">
-                            <svg class="w-3.5 h-3.5 fill-white shrink-0" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                            <span>Code</span>
-                        </a>
-                    </div>
-                </div>
-
             </div>
 
         </div>
@@ -1336,6 +1434,42 @@ const certificatesList = [
                     }
                 });
             });
+
+            // ================= PROJECT FILTER CONTROLLER =================
+            const filterBtns = document.querySelectorAll('.project-filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            if (filterBtns.length > 0 && projectCards.length > 0) {
+                filterBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const filter = this.getAttribute('data-filter');
+
+                        // Update active button state
+                        filterBtns.forEach(b => {
+                            b.classList.remove('bg-amber-500', 'text-white', 'font-semibold', 'shadow-sm');
+                            b.classList.add('bg-white/5', 'text-gray-400', 'hover:text-white', 'hover:bg-white/10', 'font-medium');
+                        });
+                        this.classList.remove('bg-white/5', 'text-gray-400', 'hover:text-white', 'hover:bg-white/10', 'font-medium');
+                        this.classList.add('bg-amber-500', 'text-white', 'font-semibold', 'shadow-sm');
+
+                        // Filter cards
+                        projectCards.forEach(card => {
+                            const categories = (card.getAttribute('data-category') || '').split(' ');
+                            if (filter === 'all' || categories.includes(filter)) {
+                                card.classList.remove('hidden');
+                                card.classList.add('flex');
+                            } else {
+                                card.classList.add('hidden');
+                                card.classList.remove('flex');
+                            }
+                        });
+
+                        if (typeof AOS !== 'undefined' && AOS.refresh) {
+                            AOS.refresh();
+                        }
+                    });
+                });
+            }
 
             // ================= CERTIFICATES MODAL CONTROLLER =================
             const certDataEl = document.getElementById('certificates-data');

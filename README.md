@@ -26,9 +26,11 @@ Personal portfolio built with Node.js, Express, and Tailwind CSS featuring smoot
 
 ## Projects Included
 
-1. College Ride Share - Full-stack ride-sharing platform
-2. Driver Drowsiness Detection - AI-powered safety system
-3. Portfolio Website - This website
+1. KitchenIQ - AI Cloud Kitchen Management System (SaaS)
+2. ClearFlow - AI Project Intelligence & Communication Platform (Gemini AI)
+3. WayMate - Full-stack community ride-sharing platform
+4. Driver Drowsiness Detection - Real-time computer vision AI safety system
+5. Portfolio Website - Modern responsive portfolio with live GitHub contributions showcase
 
 ## Setup
 
